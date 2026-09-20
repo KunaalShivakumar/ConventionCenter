@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: linear-gradient(180deg, #fff8ed 0%, #fff4df 48%, #fff8ed 100%);
+    color: #1f1a17;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .photo-polish {
+    filter: brightness(1.015) saturate(1.025) contrast(1.01);
+  }
+
+  .hero-bg-photo {
+    filter: brightness(0.94) saturate(1.04) contrast(1.03);
+    object-position: center 46%;
+    transform: none;
+  }
+
+  .hero-image-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(16, 9, 6, 0.95) 0%,
+      rgba(25, 12, 8, 0.88) 34%,
+      rgba(43, 19, 9, 0.58) 62%,
+      rgba(43, 19, 9, 0.22) 100%
+    );
+  }
+
+  .hero-warm-overlay {
+    background:
+      radial-gradient(circle at 78% 18%, rgba(247, 203, 114, 0.16), transparent 30%),
+      radial-gradient(circle at 9% 82%, rgba(168, 50, 77, 0.18), transparent 32%);
+  }
+
+  @media (max-width: 640px) {
+    .hero-bg-photo {
+      object-position: center 43%;
+    }
+
+    .hero-image-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(16, 9, 6, 0.62) 0%,
+        rgba(16, 9, 6, 0.58) 34%,
+        rgba(16, 9, 6, 0.9) 100%
+      );
+    }
+  }
+
+  .location-photo-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(16, 9, 6, 0.12) 0%,
+      rgba(16, 9, 6, 0.36) 42%,
+      rgba(16, 9, 6, 0.92) 100%
+    );
+  }
+
+  .section-warm {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.86) 0 1px, transparent 1px),
+      linear-gradient(180deg, #fffaf0 0%, #fff4df 100%);
+    background-size: 34px 34px, 100% 100%;
+  }
+
+  .section-fresh {
+    background:
+      linear-gradient(135deg, rgba(168, 50, 77, 0.07), transparent 34%),
+      linear-gradient(180deg, #ffffff 0%, #fff7e6 100%);
+  }
+}
+
+.mandala-pattern {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(139, 58, 74, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 40%, rgba(124, 67, 24, 0.16) 0 2px, transparent 3px),
+    linear-gradient(135deg, rgba(255, 248, 237, 0.88), rgba(234, 201, 129, 0.36)),
+    repeating-linear-gradient(45deg, rgba(95, 50, 24, 0.08) 0 1px, transparent 1px 18px);
+  background-size: 120px 120px, 160px 160px, 100% 100%, 28px 28px;
+}
