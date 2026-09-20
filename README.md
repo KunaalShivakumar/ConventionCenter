@@ -47,10 +47,14 @@ npm run optimize:images
 
 The workflow at `.github/workflows/deploy.yml` deploys `dist` using the official GitHub Pages actions when changes are pushed to `main`.
 
-For repository project pages, Vite automatically uses the repository name as the base path in GitHub Actions. For a future custom domain, set:
+Recommended repository setting:
 
 ```text
-VITE_BASE_PATH=/
+Settings -> Pages -> Source -> GitHub Actions
 ```
 
-If old upside-down photos still appear while testing locally, hard refresh the browser. The website photo URLs include a version query so deployed visitors receive the corrected upright images.
+Vite builds with relative asset paths, so the same `dist` output works under a repository path such as `/ConventionCenter/` and under a future custom domain.
+
+This repo also tracks the latest `dist` folder as a safety fallback because GitHub Pages may otherwise serve the raw Vite `index.html` when the repository is configured as `Deploy from a branch / main / root`. In that fallback mode, the root page redirects to `dist/` so visitors do not see a blank page.
+
+If old photos or a blank page still appear, hard refresh the browser with Ctrl + F5 after the latest Pages run is green.
