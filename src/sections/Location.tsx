@@ -1,4 +1,4 @@
-import { MapPinned, Phone } from 'lucide-react';
+import { Clock3, MapPinned, Phone, Route } from 'lucide-react';
 import { ButtonLink } from '../components/ButtonLink';
 import { PhotoPanel } from '../components/PhotoPanel';
 import { SectionHeader } from '../components/SectionHeader';
@@ -13,8 +13,10 @@ export function Location() {
     <section id="location" className="bg-white py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="rounded-lg bg-temple-50 p-6 shadow-sm sm:p-8">
-          <SectionHeader eyebrow="Location" title="Next to Kashi Vishwanatha Temple">
-            <p>{venue.name} is located in Gantiganahalli, next to {venue.temple}. Use the confirmed Google Maps link for directions to the venue.</p>
+          <SectionHeader eyebrow="Location" title="Conveniently Located">
+            <p>
+              Conveniently located in Gantiganahalli, next to {venue.temple}. The venue is very near to NITTE and Manipal Academy of Higher Education, and about 20 minutes from Yelahanka New Town depending on traffic.
+            </p>
           </SectionHeader>
           <address className="mt-8 not-italic text-base leading-8 text-stone-700">
             <strong className="block font-serif text-2xl font-semibold text-ink">{venue.name}</strong>
@@ -45,6 +47,47 @@ export function Location() {
             <p className="mt-3 max-w-lg text-sm font-medium leading-6 text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)]">
               Share the directions link with guests so they can navigate directly to the Kalyana Mantapa.
             </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-14 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="border-t border-temple-900/10 pt-10">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-rose">Nearby Landmarks</p>
+            <h3 className="mt-3 font-serif text-3xl font-semibold text-ink">Conveniently accessible from the local area</h3>
+            <p className="mt-4 text-base leading-7 text-stone-700">
+              Helpful landmarks for guests travelling through the NITTE, Manipal Academy, Yelahanka and Gantiganahalli area. Travel times are approximate because Bengaluru traffic conditions vary.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {venue.nearbyLandmarks.map((landmark) => {
+              const Icon = landmark.icon;
+              return (
+                <article key={landmark.name} className="rounded-lg border border-temple-900/10 bg-temple-50 p-6 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white text-temple-700 shadow-sm">
+                      <Icon size={24} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <h4 className="font-serif text-xl font-semibold text-ink">{landmark.name}</h4>
+                      <div className="mt-4 grid gap-3 text-sm font-semibold text-stone-700">
+                        <p className="flex items-center gap-2">
+                          <Route size={17} className="text-rose" aria-hidden="true" />
+                          {landmark.approximateDistance}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <Clock3 size={17} className="text-rose" aria-hidden="true" />
+                          Approximately {landmark.approximateTravelTime}
+                        </p>
+                      </div>
+                      {landmark.verificationNote ? <p className="mt-4 text-sm leading-6 text-stone-600">{landmark.verificationNote}</p> : null}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

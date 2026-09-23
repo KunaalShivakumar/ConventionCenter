@@ -1,10 +1,12 @@
 import {
+  Building2,
   CalendarHeart,
   Camera,
   Car,
   ChefHat,
   Clock,
   Flower2,
+  GraduationCap,
   HeartHandshake,
   Home,
   Lamp,
@@ -39,9 +41,29 @@ export type VenueImage = {
   section?: 'hero' | 'about' | 'functions' | 'dining' | 'rooms';
 };
 
+export type GoogleReview = {
+  reviewerName: string;
+  starRating: number | null;
+  excerpt: string;
+  attribution: 'Google Review';
+  isPlaceholder?: boolean;
+};
+
+export type NearbyLandmark = {
+  name: string;
+  approximateDistance: string | null;
+  approximateTravelTime: string | null;
+  icon: LucideIcon;
+  verificationNote?: string;
+};
+
+const googleMapsUrl = 'https://maps.app.goo.gl/V9XTVBspNWg9tjUS9?g_st=ac';
+
 export const venue = {
   name: 'Kashi Vishwanatha Kalyana Mantapa',
   tagline: 'A Traditional Wedding Venue Next to Kashi Vishwanatha Temple',
+  addressShort: '26/1, NITTE Meenakshi College Rd, BSF Campus, Gantiganahalli, Karnataka 560119',
+  homeLocationNote: '5 min from NITTE and Manipal Academy; 20 min from Yelahanka New Town.',
   addressLines: [
     '26/1, NITTE Meenakshi College Rd',
     'BSF Campus',
@@ -53,7 +75,64 @@ export const venue = {
   phoneHref: 'tel:07975511055',
   whatsappUrl:
     'https://wa.me/917975511055?text=Namaste%2C%20I%20would%20like%20to%20enquire%20about%20Kashi%20Vishwanatha%20Kalyana%20Mantapa.%0A%0APreferred%20date%3A%0AFunction%3A%0AExpected%20number%20of%20guests%3A%0A%0APlease%20let%20me%20know%20about%20availability%20and%20booking%20details.%0A%0AThank%20you.',
-  mapsUrl: 'https://maps.app.goo.gl/V9XTVBspNWg9tjUS9?g_st=ac',
+  mapsUrl: googleMapsUrl,
+  googleRating: {
+    rating: 4.4,
+    maxRating: 5,
+    reviewCount: 253,
+    reviewCountAsOf: 'September 2026',
+    reviewCountDisplay: '250+',
+    listingUrl: googleMapsUrl
+  },
+  reviews: [
+    {
+      reviewerName: 'Doctor seena',
+      starRating: 5,
+      excerpt: 'Very good place for all type of functions like marriage etc with 250 people for dinner in one batch and big hall.',
+      attribution: 'Google Review'
+    },
+    {
+      reviewerName: 'Harshan kumar',
+      starRating: 5,
+      excerpt: "It's good function hall, best and clean. Lake view in the front makes it more attractive.",
+      attribution: 'Google Review'
+    },
+    {
+      reviewerName: 'Pappu Sharma',
+      starRating: 5,
+      excerpt: 'Good place for wedding celebration.',
+      attribution: 'Google Review'
+    },
+    {
+      reviewerName: 'Kannan Murali',
+      starRating: 4,
+      excerpt: 'Good place and no issue for parking.',
+      attribution: 'Google Review'
+    }
+  ] satisfies GoogleReview[],
+  nearbyLandmarks: [
+    {
+      name: 'NITTE Meenakshi Institute of Technology',
+      approximateDistance: 'very nearby',
+      approximateTravelTime: 'about 5 min',
+      icon: GraduationCap,
+      verificationNote: 'Very near to the venue on the Nitte Meenakshi College Road / Gantiganahalli corridor.'
+    },
+    {
+      name: 'Manipal Academy of Higher Education',
+      approximateDistance: 'very nearby',
+      approximateTravelTime: 'about 5 min',
+      icon: GraduationCap,
+      verificationNote: 'Very near to the venue; useful for guests coming from the NITTE / MAHE area.'
+    },
+    {
+      name: 'Yelahanka New Town',
+      approximateDistance: 'nearby by road',
+      approximateTravelTime: 'about 20 min',
+      icon: Building2,
+      verificationNote: 'Approximate travel time from Yelahanka New Town; Bengaluru traffic can change timing.'
+    }
+  ] satisfies NearbyLandmark[],
   capacities: {
     mainHall: '750-1,000',
     hallSize: '120 x 75 ft',
@@ -281,7 +360,7 @@ export const venueImages: VenueImage[] = [
   }
 ];
 
-export const galleryImages = venueImages.filter((image) => image.showInGallery !== false);
+export const galleryImages = venueImages;
 
 export const getImagesForSection = (section: VenueImage['section']) =>
   venueImages.filter((image) => image.section === section);

@@ -11,6 +11,7 @@ import { Highlights } from './sections/Highlights';
 import { Location } from './sections/Location';
 import { Navigation } from './components/Navigation';
 import { Pricing } from './sections/Pricing';
+import { Reviews } from './sections/Reviews';
 import { Rooms } from './sections/Rooms';
 import { VegetarianDining } from './sections/VegetarianDining';
 
@@ -33,6 +34,7 @@ export function App() {
         <VegetarianDining />
         <Rooms />
         <Gallery />
+        <Reviews />
         <Pricing />
         <Location />
         <FAQ />
