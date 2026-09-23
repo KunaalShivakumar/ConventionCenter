@@ -63,7 +63,7 @@ export const venue = {
   name: 'Kashi Vishwanatha Kalyana Mantapa',
   tagline: 'A Traditional Wedding Venue Next to Kashi Vishwanatha Temple',
   addressShort: '26/1, NITTE Meenakshi College Rd, BSF Campus, Gantiganahalli, Karnataka 560119',
-  homeLocationNote: '5 min from NITTE and Manipal Academy; 20 min from Yelahanka New Town.',
+  homeLocationNote: '5mins from NITTE and Manipal Academy; 20mins from Yelahanka New Town.',
   addressLines: [
     '26/1, NITTE Meenakshi College Rd',
     'BSF Campus',
@@ -114,21 +114,21 @@ export const venue = {
     {
       name: 'NITTE Meenakshi Institute of Technology',
       approximateDistance: 'very nearby',
-      approximateTravelTime: 'about 5 min',
+      approximateTravelTime: '5mins',
       icon: GraduationCap,
       verificationNote: 'Very near to the venue on the Nitte Meenakshi College Road / Gantiganahalli corridor.'
     },
     {
       name: 'Manipal Academy of Higher Education',
       approximateDistance: 'very nearby',
-      approximateTravelTime: 'about 5 min',
+      approximateTravelTime: '5mins',
       icon: GraduationCap,
       verificationNote: 'Very near to the venue; useful for guests coming from the NITTE / MAHE area.'
     },
     {
       name: 'Yelahanka New Town',
       approximateDistance: 'nearby by road',
-      approximateTravelTime: 'about 20 min',
+      approximateTravelTime: '20mins',
       icon: Building2,
       verificationNote: 'Approximate travel time from Yelahanka New Town; Bengaluru traffic can change timing.'
     }
