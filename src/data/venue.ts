@@ -243,11 +243,16 @@ export const venue = {
   icons: { Camera, MapPin, Phone, ShieldCheck }
 };
 
-const photoVersion = '20260924-about-realistic-v4';
+const photoVersion = '20260924-gallery-exterior-v5';
 const photo = (filename: string) =>
   `${import.meta.env.BASE_URL}venue-photos/${filename}?v=${photoVersion}`;
 
 export const venueImages: VenueImage[] = [
+  {
+    src: photo('hero-exterior-front.jpg'),
+    alt: 'Front exterior of Kashi Vishwanatha Kalyana Mantapa with entrance steps, gate and temple-adjacent setting',
+    category: 'Exterior'
+  },
   {
     src: photo('temple-entrance-steps.jpg'),
     alt: 'Temple-style entrance steps with Ganesha idol, gold elephant decor and floral trim',
@@ -260,12 +265,6 @@ export const venueImages: VenueImage[] = [
     alt: 'Decorated main hall at Kashi Vishwanatha Kalyana Mantapa with floral mandap, red aisle and guest seating',
     category: 'Main Hall',
     section: 'about'
-  },
-  {
-    src: photo('hero-exterior-front.jpg'),
-    alt: 'Front exterior of Kashi Vishwanatha Kalyana Mantapa with entrance steps, gate and temple-adjacent setting',
-    category: 'Exterior',
-    showInGallery: false
   },
   {
     src: photo('floral-stage-peacock-sofa.jpg'),
