@@ -2,19 +2,19 @@ import { MapPin, Phone } from 'lucide-react';
 import { ButtonLink } from '../components/ButtonLink';
 import { PhotoPanel } from '../components/PhotoPanel';
 import { SectionHeader } from '../components/SectionHeader';
-import { heroImage, venue } from '../data/venue';
+import { getImagesForSection, heroImage, venue } from '../data/venue';
 
 export function About() {
-  const image = heroImage;
+  const image = getImagesForSection('about')[0] ?? heroImage;
 
   return (
     <section id="about" className="section-warm py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
         <div className="relative overflow-hidden rounded-lg bg-ink shadow-soft ring-1 ring-temple-900/10">
-          <PhotoPanel image={image} className="aspect-[4/5] object-[center_45%] sm:aspect-[4/3] lg:aspect-[5/4]" />
+          <PhotoPanel image={image} className="aspect-[4/5] object-[center_48%] sm:aspect-[4/3] lg:aspect-[5/4]" />
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/82 to-transparent p-5 pt-16">
             <p className="w-fit rounded-full bg-black/45 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-temple-100 backdrop-blur">
-              Front exterior and entrance
+              Decorated main hall
             </p>
           </div>
         </div>

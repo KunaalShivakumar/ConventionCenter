@@ -5,9 +5,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import { venue, venueImages } from '../data/venue';
 
 export function Location() {
-  const exterior =
-    venueImages.find((image) => image.section === 'hero') ??
-    venueImages.find((image) => image.category === 'Exterior');
+  const exterior = venueImages.find((image) => image.category === 'Exterior');
 
   return (
     <section id="location" className="bg-white py-20 sm:py-24">

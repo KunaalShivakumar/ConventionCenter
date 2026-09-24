@@ -139,7 +139,7 @@ export const venue = {
     stage: '44 x 18 ft',
     dining: '200-250',
     rooms: '10',
-    parking: '50-75'
+    parking: '300-350'
   },
   pricing: [
     { label: 'Full Day', price: '₹1,50,000', note: 'Timing: 2 PM - 2 PM' },
@@ -163,7 +163,7 @@ export const venue = {
     { value: '120 x 75 ft', label: 'Main Hall', icon: Home },
     { value: '200-250', label: 'Dining Capacity', icon: Utensils },
     { value: '10', label: 'Guest Rooms', icon: Home },
-    { value: '50-75', label: 'Car Parking', icon: Car },
+    { value: '300-350', label: 'Car Parking', icon: Car },
     { value: '100%', label: 'Vegetarian', icon: ChefHat }
   ],
   facilities: [
@@ -176,7 +176,7 @@ export const venue = {
     { label: '5 Non-AC rooms', icon: Home },
     { label: 'Separate bride room', icon: Flower2 },
     { label: 'Separate groom room', icon: HeartHandshake },
-    { label: '50-75 car parking opposite the choultry', icon: Car },
+    { label: '300-350 car parking opposite the choultry', icon: Car },
     { label: 'CCTV available', icon: Video },
     { label: 'Generator backup', icon: Zap },
     { label: 'Chairs included', icon: Users },
@@ -213,7 +213,7 @@ export const venue = {
     },
     {
       question: 'Is parking available?',
-      answer: 'Yes. Parking for approximately 50-75 cars is available opposite the Kalyana Mantapa. Guests should use the parking area opposite the choultry as guided by the venue team.'
+      answer: 'Yes. Parking for approximately 300-350 cars is available opposite the Kalyana Mantapa. Guests should use the parking area opposite the choultry as guided by the venue team.'
     },
     {
       question: 'Is there a security deposit?',
@@ -243,49 +243,59 @@ export const venue = {
   icons: { Camera, MapPin, Phone, ShieldCheck }
 };
 
-const photoVersion = '20260920-new-front-hero-v7';
+const photoVersion = '20260924-about-realistic-v4';
 const photo = (filename: string) =>
   `${import.meta.env.BASE_URL}venue-photos/${filename}?v=${photoVersion}`;
 
 export const venueImages: VenueImage[] = [
   {
-    src: photo('hero-exterior-front.jpg'),
-    alt: 'Front exterior of Kashi Vishwanatha Kalyana Mantapa with entrance steps, gate and temple-adjacent setting',
-    category: 'Exterior',
+    src: photo('temple-entrance-steps.jpg'),
+    alt: 'Temple-style entrance steps with Ganesha idol, gold elephant decor and floral trim',
+    category: 'Entrance',
     featured: true,
     section: 'hero'
   },
   {
-    src: photo('20260914_162143.jpg'),
-    alt: 'Carved wooden entrance doorway leading into the main wedding hall',
-    category: 'Entrance',
+    src: photo('decorated-main-hall-about-realistic.png'),
+    alt: 'Decorated main hall at Kashi Vishwanatha Kalyana Mantapa with floral mandap, red aisle and guest seating',
+    category: 'Main Hall',
     section: 'about'
   },
   {
-    src: photo('20260914_162159.jpg'),
-    alt: 'Main hall of Kashi Vishwanatha Kalyana Mantapa with polished floor, ceiling lights and central idol',
-    category: 'Main Hall',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_162120.jpg'),
-    alt: 'Exterior front steps and entrance canopy of Kashi Vishwanatha Kalyana Mantapa',
+    src: photo('hero-exterior-front.jpg'),
+    alt: 'Front exterior of Kashi Vishwanatha Kalyana Mantapa with entrance steps, gate and temple-adjacent setting',
     category: 'Exterior',
-    section: 'functions',
     showInGallery: false
   },
   {
-    src: photo('20260914_162415.jpg'),
-    alt: 'Main hall view showing ceiling lighting, stage area and side windows',
+    src: photo('floral-stage-peacock-sofa.jpg'),
+    alt: 'Reception stage with floral backdrop, marble-style panels, gold stands and peacock-design sofa',
     category: 'Stage',
     section: 'functions'
   },
   {
-    src: photo('20260914_161759.jpg'),
-    alt: 'Spacious dining hall with fans, service counters and stacked tables',
+    src: photo('white-floral-reception-stage.jpg'),
+    alt: 'White floral wedding reception stage with layered floral arches and warm lighting',
+    category: 'Stage',
+    section: 'functions'
+  },
+  {
+    src: photo('red-gold-wedding-stage.jpg'),
+    alt: 'Red and gold wedding stage backdrop with flower borders and decorative hanging lights',
+    category: 'Stage',
+    section: 'functions'
+  },
+  {
+    src: photo('traditional-decorated-entry-arch.jpg'),
+    alt: 'Traditional decorated entrance arch with pillars, drapes, flowers and greenery',
+    category: 'Entrance',
+    section: 'functions'
+  },
+  {
+    src: photo('20260914_161744.jpg'),
+    alt: 'Dining hall from a wide angle with polished floor, pillars and arranged tables',
     category: 'Dining',
-    section: 'dining',
-    showInGallery: false
+    section: 'dining'
   },
   {
     src: photo('20260914_162520.jpg'),
@@ -294,73 +304,12 @@ export const venueImages: VenueImage[] = [
     section: 'rooms'
   },
   {
-    src: photo('20260914_161430.jpg'),
-    alt: 'Covered side area suitable for stalls and informal seating beside the Kalyana Mantapa',
-    category: 'Other',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_161744.jpg'),
-    alt: 'Dining hall from a wide angle with polished floor, pillars and arranged tables',
-    category: 'Dining'
-  },
-  {
-    src: photo('20260914_161806.jpg'),
-    alt: 'Alternate dining hall view showing fans, marble wall finish and open floor area',
-    category: 'Dining',
-    section: 'functions',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_161847.jpg'),
-    alt: 'Service and catering preparation area with cooking counters and ventilation',
-    category: 'Dining',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_162116.jpg'),
-    alt: 'Low-angle exterior view of the front entrance stairs and canopy',
-    category: 'Exterior',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_162156.jpg'),
-    alt: 'Main hall view with central idol and stage area in the background',
-    category: 'Main Hall',
-    section: 'functions'
-  },
-  {
-    src: photo('20260914_162342.jpg'),
-    alt: 'Upper-level view looking across the main hall toward the stage end',
-    category: 'Main Hall',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_162354.jpg'),
-    alt: 'Wide upper-level view of the main hall and seating side walls',
-    category: 'Main Hall',
-    showInGallery: false
-  },
-  {
-    src: photo('20260914_162532.jpg'),
-    alt: 'Alternate guest room view showing bed, wardrobe, fan and doorway',
-    category: 'Rooms',
-    showInGallery: false
-  },
-  {
     src: photo('20260914_162548.jpg'),
     alt: 'Attached bathroom with sink, toilet, shower and water heater',
     category: 'Rooms'
-  },
-  {
-    src: photo('20260914_162603.jpg'),
-    alt: 'Alternate attached bathroom view with mirror, sink and shower fittings',
-    category: 'Rooms',
-    showInGallery: false
   }
 ];
-
-export const galleryImages = venueImages;
+export const galleryImages = venueImages.filter((image) => image.showInGallery !== false);
 
 export const getImagesForSection = (section: VenueImage['section']) =>
   venueImages.filter((image) => image.section === section);
