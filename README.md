@@ -53,8 +53,8 @@ Recommended repository setting:
 Settings -> Pages -> Source -> GitHub Actions
 ```
 
-Vite builds with relative asset paths, so the same `dist` output works under a repository path such as `/ConventionCenter/` and under a future custom domain.
+Vite builds for the custom domain at the root path `/`, so the deployed GitHub Pages artifact is intended to be served from `https://www.kashivishwanathaconventioncenter.com/`.
 
-This repo also tracks the latest `dist` folder as a safety fallback because GitHub Pages may otherwise serve the raw Vite `index.html` when the repository is configured as `Deploy from a branch / main / root`. In that fallback mode, the root page redirects to `dist/` so visitors do not see a blank page.
+This repo also tracks the latest `dist` folder as a safety fallback because GitHub Pages may otherwise serve the raw Vite `index.html` when the repository is configured as `Deploy from a branch / main / root`. In that fallback mode, the root page redirects GitHub-hosted traffic to the custom domain so visitors land on the canonical website.
 
 If old photos or a blank page still appear, hard refresh the browser with Ctrl + F5 after the latest Pages run is green.
