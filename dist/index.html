@@ -62,17 +62,8 @@
     <div id="root"></div>
     <script>
       (function () {
-        var rawViteEntry = document.querySelector('script[src="/src/main.tsx"]');
-        if (!rawViteEntry) return;
-
-        var host = window.location.hostname.toLowerCase();
-        var isGitHubPages = host.endsWith('github.io');
-        var isCustomDomain = host === 'www.kashivishwanathaconventioncenter.com' || host === 'kashivishwanathaconventioncenter.com';
-        if (!isGitHubPages && !isCustomDomain) return;
-
-        var targetOrigin = isGitHubPages ? 'https://www.kashivishwanathaconventioncenter.com' : window.location.origin;
-        if (!window.location.pathname.startsWith('/dist/')) {
-          window.location.replace(targetOrigin + '/dist/' + window.location.search + window.location.hash);
+        if (window.location.hostname.toLowerCase().endsWith('github.io')) {
+          window.location.replace('https://www.kashivishwanathaconventioncenter.com/' + window.location.search + window.location.hash);
         }
       })();
     </script>
