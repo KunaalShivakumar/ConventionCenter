@@ -1,12 +1,19 @@
 import { MapPinned, MessageCircle, Phone } from 'lucide-react';
 import { venue } from '../data/venue';
 
+const seoLinks = [
+  ['Wedding Venue in Gantiganahalli', '/wedding-venue-gantiganahalli/'],
+  ['Convention Hall in Bengaluru', '/convention-hall-bengaluru/'],
+  ['Kalyana Mantapa near Yelahanka', '/kalyana-mantapa-near-yelahanka/'],
+  ['Vegetarian Wedding Hall', '/vegetarian-wedding-hall/']
+];
+
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-ink px-4 pb-40 pt-12 text-white sm:px-6 md:pb-8 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.1fr_0.8fr_0.8fr_0.9fr]">
         <div>
           <h2 className="font-serif text-2xl font-semibold">{venue.name}</h2>
           <p className="mt-3 max-w-md text-sm leading-6 text-white/70">Pure vegetarian traditional wedding venue next to {venue.temple}.</p>
@@ -29,9 +36,17 @@ export function Footer() {
             <MapPinned size={16} aria-hidden="true" /> Google Maps
           </a>
         </div>
+        <nav className="text-sm leading-7" aria-label="Venue search pages">
+          <strong className="mb-2 block">Venue Pages</strong>
+          {seoLinks.map(([label, href]) => (
+            <a key={href} href={href} className="block text-white/75 hover:text-white">
+              {label}
+            </a>
+          ))}
+        </nav>
       </div>
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-5 text-sm text-white/55">
-        © {year} {venue.name}. All rights reserved.
+        &copy; {year} {venue.name}. All rights reserved.
       </div>
     </footer>
   );
