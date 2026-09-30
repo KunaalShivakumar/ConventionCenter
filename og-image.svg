@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fff8ed"/>
+  <rect x="60" y="60" width="1080" height="510" rx="18" fill="#7c4318"/>
+  <path d="M130 500h940v20H130zM210 442h780v58H210zM280 260h640v182H280z" fill="#fff8ed"/>
+  <path d="M230 260h740L600 105z" fill="#eac981"/>
+  <text x="600" y="360" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#7c4318">Kashi Vishwanatha</text>
+  <text x="600" y="424" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#7c4318">Kalyana Mantapa</text>
+  <text x="600" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#fff8ed">Pure Vegetarian Wedding Venue in Gantiganahalli</text>
+</svg>
