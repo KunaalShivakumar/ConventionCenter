@@ -167,20 +167,26 @@
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+    <link rel="stylesheet" href="/assets/index.css" />
+    <script>
+      if (
+        !window.location.hostname.includes('localhost') &&
+        window.location.hostname !== '127.0.0.1' &&
+        !window.location.pathname.startsWith('/dist/')
+      ) {
+        var productionBundle = document.createElement('script');
+        productionBundle.type = 'module';
+        productionBundle.src = '/assets/index.js';
+        document.head.appendChild(productionBundle);
+      }
+    </script>
     <script>
       (function () {
         var rawViteEntry = document.querySelector('script[src="/src/main.tsx"]');
         if (!rawViteEntry) return;
-
-        var host = window.location.hostname.toLowerCase();
-        var isGitHubPages = host.endsWith('github.io');
-        var isCustomDomain = host === 'www.kashivishwanathaconventioncenter.com' || host === 'kashivishwanathaconventioncenter.com';
-        if (!isGitHubPages && !isCustomDomain) return;
-
-        var targetOrigin = isGitHubPages ? 'https://www.kashivishwanathaconventioncenter.com' : window.location.origin;
-        if (!window.location.pathname.startsWith('/dist/')) {
-          window.location.replace(targetOrigin + '/dist/' + window.location.search + window.location.hash);
-        }
+        rawViteEntry.addEventListener('error', function () {
+          rawViteEntry.remove();
+        });
       })();
     </script>
   </body>
