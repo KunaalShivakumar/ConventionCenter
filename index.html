@@ -172,7 +172,8 @@
       if (
         !window.location.hostname.includes('localhost') &&
         window.location.hostname !== '127.0.0.1' &&
-        !window.location.pathname.startsWith('/dist/')
+        !window.location.pathname.startsWith('/dist/') &&
+        !document.querySelector('script[src="/assets/index.js"]')
       ) {
         var productionBundle = document.createElement('script');
         productionBundle.type = 'module';
