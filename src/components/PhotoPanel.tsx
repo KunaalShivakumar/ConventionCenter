@@ -6,16 +6,51 @@ type PhotoPanelProps = {
   image?: VenueImage;
   className?: string;
   label?: string;
+  sizes?: string;
 };
 
-export function PhotoPanel({ image, className, label = 'Venue photography' }: PhotoPanelProps) {
-  if (image) {
-    return (
+type ResponsiveVenueImageProps = {
+  image: VenueImage;
+  className?: string;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  fetchPriority?: 'high' | 'low' | 'auto';
+};
+
+export function ResponsiveVenueImage({
+  image,
+  className,
+  sizes = '(min-width: 1024px) 50vw, 100vw',
+  loading,
+  fetchPriority
+}: ResponsiveVenueImageProps) {
+  return (
+    <picture className="contents">
+      <source type="image/webp" srcSet={image.webpSrcSet} sizes={sizes} />
       <img
         src={image.src}
         alt={image.alt}
-        className={classNames('h-full w-full object-cover photo-polish', className)}
+        width={image.width}
+        height={image.height}
+        sizes={sizes}
+        className={classNames('photo-polish', className)}
+        loading={loading ?? (image.featured ? 'eager' : 'lazy')}
+        fetchPriority={fetchPriority ?? (image.featured ? 'high' : 'auto')}
+        decoding="async"
+      />
+    </picture>
+  );
+}
+
+export function PhotoPanel({ image, className, label = 'Venue photography', sizes }: PhotoPanelProps) {
+  if (image) {
+    return (
+      <ResponsiveVenueImage
+        image={image}
+        className={classNames('h-full w-full object-cover', className)}
+        sizes={sizes}
         loading={image.featured ? 'eager' : 'lazy'}
+        fetchPriority={image.featured ? 'high' : 'auto'}
       />
     );
   }

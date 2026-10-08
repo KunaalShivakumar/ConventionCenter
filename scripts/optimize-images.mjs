@@ -1,36 +1,50 @@
-import { mkdir, readFile, readdir, rename, rm } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
 const photosDir = path.resolve('public/venue-photos');
-const tempDir = path.join(photosDir, '.optimized');
-const maxWidth = 2200;
-const alreadyPrepared = new Set(['hero-exterior-front.jpg']);
+const optimizedDir = path.join(photosDir, 'optimized');
+const socialImageInput = path.join(photosDir, 'temple-entrance-steps.jpg');
+const socialImageOutput = path.resolve('public/og-image.jpg');
+const targetWidths = [480, 640, 960, 1280, 1600, 1920];
 
-await mkdir(tempDir, { recursive: true });
+await rm(optimizedDir, { recursive: true, force: true });
+await mkdir(optimizedDir, { recursive: true });
 
 const files = (await readdir(photosDir)).filter(
-  (file) => /\.(jpe?g)$/i.test(file) && !alreadyPrepared.has(file)
+  (file) => /\.(jpe?g|png)$/i.test(file)
 );
+
+let generatedCount = 0;
 
 for (const file of files) {
   const input = path.join(photosDir, file);
-  const output = path.join(tempDir, file);
   const imageBuffer = await readFile(input);
   const image = sharp(imageBuffer, { failOn: 'none' });
   const metadata = await image.metadata();
-  const width = metadata.width && metadata.width > maxWidth ? maxWidth : metadata.width;
+  const originalWidth = metadata.width;
 
-  await image
-    .rotate()
-    .resize({ width, withoutEnlargement: true })
-    .modulate({ brightness: 1.025, saturation: 1.03 })
-    .jpeg({ quality: 90, mozjpeg: true, progressive: true })
-    .toFile(output);
+  if (!originalWidth) continue;
 
-  await rm(input);
-  await rename(output, input);
+  const widths = [...targetWidths.filter((width) => width < originalWidth), originalWidth];
+  const stem = path.parse(file).name;
+
+  for (const width of widths) {
+    await image
+      .clone()
+      .rotate()
+      .resize({ width, withoutEnlargement: true })
+      .webp({ quality: width >= 1280 ? 78 : 74, effort: 6 })
+      .toFile(path.join(optimizedDir, `${stem}-${width}.webp`));
+
+    generatedCount += 1;
+  }
 }
 
-await rm(tempDir, { recursive: true, force: true });
-console.log(`Optimized ${files.length} venue photos.`);
+await sharp(socialImageInput, { failOn: 'none' })
+  .rotate()
+  .resize(1200, 630, { fit: 'cover', position: 'center' })
+  .jpeg({ quality: 86, mozjpeg: true, progressive: true })
+  .toFile(socialImageOutput);
+
+console.log(`Generated ${generatedCount} responsive WebP images and og-image.jpg. Originals preserved.`);

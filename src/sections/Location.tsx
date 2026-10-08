@@ -13,7 +13,7 @@ export function Location() {
         <div className="rounded-lg bg-temple-50 p-6 shadow-sm sm:p-8">
           <SectionHeader eyebrow="Location" title="Conveniently Located">
             <p>
-              Conveniently located in Gantiganahalli, next to {venue.temple}. The venue is very near to NITTE and Manipal Academy of Higher Education, and 20mins from Yelahanka New Town depending on traffic.
+              Conveniently located in Gantiganahalli, next to {venue.temple}, for families searching for a wedding hall, marriage choultry or kalyana mantapa around Yelahanka. The venue is very near to NITTE and Manipal Academy of Higher Education, and 20mins from Yelahanka New Town depending on traffic.
             </p>
           </SectionHeader>
           <address className="mt-8 not-italic text-base leading-8 text-stone-700">

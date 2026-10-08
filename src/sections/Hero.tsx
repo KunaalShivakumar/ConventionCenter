@@ -9,7 +9,7 @@ export function Hero() {
     <section id="home" className="relative isolate overflow-hidden bg-ink text-white">
       <div className="absolute inset-0">
         {heroImage ? (
-          <PhotoPanel image={heroImage} className="hero-bg-photo" />
+          <PhotoPanel image={heroImage} className="hero-bg-photo" sizes="100vw" />
         ) : (
           <div className="h-full w-full bg-temple-900 mandala-pattern opacity-40" />
         )}

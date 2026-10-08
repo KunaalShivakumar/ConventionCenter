@@ -21,7 +21,7 @@ export function About() {
         <div className="rounded-lg border border-temple-900/10 bg-white p-5 shadow-soft sm:p-7">
           <SectionHeader eyebrow="About the venue" title="Traditional, spacious and close to the temple">
             <p>
-              {venue.name} is a traditional wedding and family-function venue in Gantiganahalli, located next to {venue.temple}. The venue is 100% vegetarian and supports weddings, engagements, receptions and naming ceremonies.
+              {venue.name} is a traditional wedding hall and convention hall in Gantiganahalli, near Yelahanka, Bengaluru, located next to {venue.temple}. The venue is 100% vegetarian and supports weddings, engagements, receptions and naming ceremonies.
             </p>
             <p className="mt-4">
               Families have access to a large main hall, dining facility, guest rooms, bride and groom rooms, parking opposite the Kalyana Mantapa, generator backup and CCTV.

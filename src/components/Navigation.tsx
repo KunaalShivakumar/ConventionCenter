@@ -38,7 +38,7 @@ export function Navigation() {
         </div>
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-temple-900/15 text-temple-900 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-temple-900/15 text-temple-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-temple-700 lg:hidden"
           aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}

@@ -34,6 +34,9 @@ export type GalleryCategory =
 
 export type VenueImage = {
   src: string;
+  webpSrcSet: string;
+  width: number;
+  height: number;
   alt: string;
   category: GalleryCategory;
   featured?: boolean;
@@ -61,9 +64,9 @@ const googleMapsUrl = 'https://maps.app.goo.gl/V9XTVBspNWg9tjUS9?g_st=ac';
 
 export const venue = {
   name: 'Kashi Vishwanatha Kalyana Mantapa',
-  tagline: 'A Traditional Wedding Venue Next to Kashi Vishwanatha Temple',
+  tagline: 'A Traditional Wedding and Convention Hall Near Yelahanka',
   addressShort: '26/1, NITTE Meenakshi College Rd, BSF Campus, Gantiganahalli, Karnataka 560119',
-  homeLocationNote: '5mins from NITTE and Manipal Academy; 20mins from Yelahanka New Town.',
+  homeLocationNote: 'In Gantiganahalli, 5mins from NITTE and Manipal Academy; 20mins from Yelahanka New Town.',
   addressLines: [
     '26/1, NITTE Meenakshi College Rd',
     'BSF Campus',
@@ -243,67 +246,85 @@ export const venue = {
   icons: { Camera, MapPin, Phone, ShieldCheck }
 };
 
-const photoVersion = '20260924-gallery-exterior-v5';
+const photoVersion = '20261008-responsive-images-v1';
+const responsiveWidths = [480, 640, 960, 1280, 1600, 1920];
 const photo = (filename: string) =>
   `${import.meta.env.BASE_URL}venue-photos/${filename}?v=${photoVersion}`;
+const optimizedPhoto = (filename: string, width: number) => {
+  const stem = filename.replace(/\.[^.]+$/, '');
+  return `${import.meta.env.BASE_URL}venue-photos/optimized/${stem}-${width}.webp?v=${photoVersion}`;
+};
+const photoAsset = (filename: string, width: number, height: number) => {
+  const widths = [...responsiveWidths.filter((targetWidth) => targetWidth < width), width];
+
+  return {
+    src: photo(filename),
+    webpSrcSet: widths
+      .filter((targetWidth, index) => widths.indexOf(targetWidth) === index)
+      .map((targetWidth) => `${optimizedPhoto(filename, targetWidth)} ${targetWidth}w`)
+      .join(', '),
+    width,
+    height
+  };
+};
 
 export const venueImages: VenueImage[] = [
   {
-    src: photo('hero-exterior-front.jpg'),
+    ...photoAsset('hero-exterior-front.jpg', 1800, 2400),
     alt: 'Front exterior of Kashi Vishwanatha Kalyana Mantapa with entrance steps, gate and temple-adjacent setting',
     category: 'Exterior'
   },
   {
-    src: photo('temple-entrance-steps.jpg'),
+    ...photoAsset('temple-entrance-steps.jpg', 1600, 900),
     alt: 'Temple-style entrance steps with Ganesha idol, gold elephant decor and floral trim',
     category: 'Entrance',
     featured: true,
     section: 'hero'
   },
   {
-    src: photo('decorated-main-hall-about-realistic.png'),
+    ...photoAsset('decorated-main-hall-about-realistic.png', 1672, 941),
     alt: 'Decorated main hall at Kashi Vishwanatha Kalyana Mantapa with floral mandap, red aisle and guest seating',
     category: 'Main Hall',
     section: 'about'
   },
   {
-    src: photo('floral-stage-peacock-sofa.jpg'),
+    ...photoAsset('floral-stage-peacock-sofa.jpg', 1600, 900),
     alt: 'Reception stage with floral backdrop, marble-style panels, gold stands and peacock-design sofa',
     category: 'Stage',
     section: 'functions'
   },
   {
-    src: photo('white-floral-reception-stage.jpg'),
+    ...photoAsset('white-floral-reception-stage.jpg', 1040, 493),
     alt: 'White floral wedding reception stage with layered floral arches and warm lighting',
     category: 'Stage',
     section: 'functions'
   },
   {
-    src: photo('red-gold-wedding-stage.jpg'),
+    ...photoAsset('red-gold-wedding-stage.jpg', 1040, 493),
     alt: 'Red and gold wedding stage backdrop with flower borders and decorative hanging lights',
     category: 'Stage',
     section: 'functions'
   },
   {
-    src: photo('traditional-decorated-entry-arch.jpg'),
+    ...photoAsset('traditional-decorated-entry-arch.jpg', 1040, 493),
     alt: 'Traditional decorated entrance arch with pillars, drapes, flowers and greenery',
     category: 'Entrance',
     section: 'functions'
   },
   {
-    src: photo('20260914_161744.jpg'),
+    ...photoAsset('20260914_161744.jpg', 2200, 1650),
     alt: 'Dining hall from a wide angle with polished floor, pillars and arranged tables',
     category: 'Dining',
     section: 'dining'
   },
   {
-    src: photo('20260914_162520.jpg'),
+    ...photoAsset('20260914_162520.jpg', 2200, 2933),
     alt: 'Guest room with bed, wardrobe, fan and air conditioner',
     category: 'Rooms',
     section: 'rooms'
   },
   {
-    src: photo('20260914_162548.jpg'),
+    ...photoAsset('20260914_162548.jpg', 2200, 2933),
     alt: 'Attached bathroom with sink, toilet, shower and water heater',
     category: 'Rooms'
   }

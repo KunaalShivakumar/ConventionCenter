@@ -1,6 +1,7 @@
 import { Camera } from 'lucide-react';
 import { useState } from 'react';
 import { Lightbox } from '../components/Lightbox';
+import { ResponsiveVenueImage } from '../components/PhotoPanel';
 import { SectionHeader } from '../components/SectionHeader';
 import { galleryImages } from '../data/venue';
 
@@ -25,7 +26,13 @@ export function Gallery() {
                 onClick={() => setActiveIndex(0)}
                 aria-label={`Open photo: ${featuredImage.alt}`}
               >
-                <img src={featuredImage.src} alt={featuredImage.alt} className="h-full w-full object-cover object-[center_45%] transition duration-500 group-hover:scale-[1.025]" loading="lazy" />
+                <ResponsiveVenueImage
+                  image={featuredImage}
+                  className="h-full w-full object-cover object-[center_45%] transition duration-500 group-hover:scale-[1.025]"
+                  sizes="(min-width: 1024px) 1184px, 100vw"
+                  loading="lazy"
+                  fetchPriority="low"
+                />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/82 via-ink/10 to-transparent" aria-hidden="true" />
                 <span className="absolute bottom-4 left-4 rounded-full bg-black/65 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur">
                   {featuredImage.category}
@@ -42,7 +49,13 @@ export function Gallery() {
                   onClick={() => setActiveIndex(index + 1)}
                   aria-label={`Open photo: ${image.alt}`}
                 >
-                  <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]" loading="lazy" />
+                  <ResponsiveVenueImage
+                    image={image}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.035]"
+                    sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                    fetchPriority="low"
+                  />
                   <span className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/80 to-transparent opacity-95" aria-hidden="true" />
                   <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1 text-xs font-semibold text-white shadow-sm backdrop-blur">
                     {image.category}
