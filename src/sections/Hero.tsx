@@ -19,9 +19,9 @@ export function Hero() {
       </div>
       <div className="relative mx-auto flex min-h-[calc(94svh-72px)] max-w-[92rem] items-center px-4 pb-28 pt-24 sm:min-h-[calc(96vh-72px)] sm:px-6 sm:py-28 lg:px-8">
         <div className="max-w-3xl">
-
-          <h1 className="max-w-3xl font-serif text-5xl font-semibold leading-[1.04] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.78)] sm:text-6xl lg:text-7xl">
-            {venue.name}
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-temple-100 drop-shadow-sm">{venue.name}</p>
+          <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-[1.06] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.78)] sm:text-6xl lg:text-7xl">
+            {venue.heroHeading}
           </h1>
           <p className="mt-6 max-w-2xl text-xl font-semibold leading-8 text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.72)]">{venue.tagline}</p>
 
@@ -51,7 +51,7 @@ export function Hero() {
               <Phone size={18} aria-hidden="true" />
               Call to Check Availability
             </ButtonLink>
-            <WhatsAppLink variant="light" className="w-full sm:w-auto" />
+            <WhatsAppLink variant="light" className="w-full sm:w-auto" label="Send a WhatsApp Enquiry" />
           </div>
 
           <div className="mt-6 max-w-2xl rounded-md border border-white/18 bg-black/20 p-4 text-sm font-semibold leading-6 text-temple-50 shadow-sm backdrop-blur">

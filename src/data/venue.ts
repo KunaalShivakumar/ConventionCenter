@@ -64,7 +64,8 @@ const googleMapsUrl = 'https://maps.app.goo.gl/V9XTVBspNWg9tjUS9?g_st=ac';
 
 export const venue = {
   name: 'Kashi Vishwanatha Kalyana Mantapa',
-  tagline: 'A Traditional Wedding and Convention Hall Near Yelahanka',
+  heroHeading: 'Wedding Hall & Marriage Choultry near Yelahanka',
+  tagline: 'Vegetarian venue in Gantiganahalli, Bengaluru for weddings and family ceremonies.',
   addressShort: '26/1, NITTE Meenakshi College Rd, BSF Campus, Gantiganahalli, Karnataka 560119',
   homeLocationNote: 'In Gantiganahalli, 5mins from NITTE and Manipal Academy; 20mins from Yelahanka New Town.',
   addressLines: [

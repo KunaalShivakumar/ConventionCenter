@@ -17,7 +17,7 @@ export function FinalCTA() {
             <Phone size={18} aria-hidden="true" />
             Call to Check Availability
           </ButtonLink>
-          <WhatsAppLink variant="light" />
+          <WhatsAppLink variant="light" label="Send a WhatsApp Enquiry" />
           <ButtonLink href={venue.mapsUrl} target="_blank" rel="noreferrer" variant="light">
             <MapPinned size={18} aria-hidden="true" />
             Get Directions
